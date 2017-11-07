@@ -1,10 +1,10 @@
 require_relative 'bloom_filter'
 
-filter = Filters::BloomFilter.new('wordlist.txt')
-n = 100000
+filter = Filters::BloomFilter.new('wordlist.txt',20000000)
+n = 10000
 positives = []
 false_positives = []
-(0..n).each do
+(1..n).each do
 	w = ('a'..'z').to_a.shuffle[0,5].join
 	if filter.contains?(w)
 		positives << w
